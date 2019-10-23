@@ -8,6 +8,22 @@ exports = module.exports = {
   algo: function (input) {
     // YOUR CODE BETWEEN HERE
 
+    let position = input[0]
+
+    for (let i = 1; i < 43; i++) {
+        let depassement = input[i].split(' ')
+        position += parseInt(depassement[0])
+        position -= parseInt(depassement[1])
+      }
+
+    if (parseInt(position) <= 100) {
+      return 1000
+    } else if (parseInt(position) <= 10000) {
+      return 100
+    } else {
+      return 'KO'
+    }
+
     // AND HERE
   },
   verify: function (dataset, output) {

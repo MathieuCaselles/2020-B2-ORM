@@ -8,6 +8,61 @@ exports = module.exports = {
   algo: function (input) {
     // YOUR CODE BETWEEN HERE
     
+    const tailleGrille = input[0]
+    let chemin = ''
+    let direction = '>'
+    for (let i = 1; i <= tailleGrille; i++) {
+      let ligneActuelle = input[i].split('')
+      for (let j = 0; i <= tailleGrille; i++) {
+        if (ligneActuelle[j] === 'o') {
+          chemin += 'x'
+          ligneActuelle[j] = '.'
+          j -= 1
+        } else if (j + 1 < tailleGrille && j - 1 > -1) {
+          chemin += direction
+        } 
+        console.log('coucou')
+      }
+      if (direction === '>') {
+        direction = '<'
+      } else {
+        direction = '>'
+      }
+
+      chemin += 'v'
+    }
+
+    chemin = chemin.substring(0,chemin.length -1);
+
+    grilleInverse = input.reverse()
+
+    for (let i = 0; i <= tailleGrille; i++) {
+      let ligneActuelle = input[i].split('')
+      for (let j = 0; i <= tailleGrille; i++) {
+        if (ligneActuelle[j] === '*') {
+          chemin += 'x'
+          ligneActuelle[j] = '.'
+          j -= 1
+        } else if (j + 1 < tailleGrille && j - 1 > -1) {
+          chemin += direction
+        } 
+      }
+      if (direction === '>') {
+        direction = '<'
+      } else {
+        direction = '>'
+      }
+
+      chemin += '^'
+    }
+
+    chemin = chemin.substring(0,chemin.length -1);
+
+    
+    console.log(chemin)
+    return chemin
+
+
     // AND HERE
   },
   verify: function (dataset, output) {

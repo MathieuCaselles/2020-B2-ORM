@@ -8,6 +8,22 @@ exports = module.exports = {
   algo: function (input) {
     // YOUR CODE BETWEEN HERE
 
+    let compteur = 1
+    const inputLength = input[0]
+    const chargeMax = 100
+    let chargeActuelle = 0
+
+    for (let i = 1; i <= inputLength; i++) {
+      if (chargeActuelle + input[i] <= chargeMax) {
+        chargeActuelle += input[i]
+      } else {
+        compteur += 1
+        chargeActuelle = 0
+        chargeActuelle += input[i]
+      }
+    }
+    return compteur
+
     // AND HERE
   },
   verify: function (dataset, output) {
